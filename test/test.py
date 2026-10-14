@@ -58,3 +58,35 @@ async def test_quet_256(dut):
     for d in range(256):
         assert await nap(dut, d, 0) == dao_bit(d)
         assert await nap(dut, d, 1) == dao_nibble(d)
+
+@cocotb.test()
+async def test_tu_xay_1_khong_doi_xung(dut):
+    # Tinh tay: 0x12 = 0001_0010
+    #   dao bit    -> 0100_1000 = 0x48
+    #   doi nibble -> 0010_0001 = 0x21
+    await khoi_dong(dut)
+    assert await nap(dut, 0x12, 0) == 0x48
+    assert await nap(dut, 0x12, 1) == 0x21
+
+
+@cocotb.test()
+async def test_tu_xay_2_reset_giua_chung(dut):
+    # Tinh tay: nap 0x12 che do 0 -> 0x48; reset bat dong bo -> 0x00
+    await khoi_dong(dut)
+    assert await nap(dut, 0x12, 0) == 0x48
+    dut.rst_n.value = 0
+    await ClockCycles(dut.clk, 2)
+    assert int(dut.uo_out.value) == 0x00
+    dut.rst_n.value = 1
+    await ClockCycles(dut.clk, 1)
+
+
+@cocotb.test()
+async def test_tu_xay_3_doi_che_do_khi_khong_nap(dut):
+    # Tinh tay: sau khi chot 0x48, doi che do va ui_in khi nap=0 thi uo_out van 0x48
+    await khoi_dong(dut)
+    assert await nap(dut, 0x12, 0) == 0x48
+    dut.ui_in.value = 0x12
+    dut.uio_in.value = 0b10
+    await ClockCycles(dut.clk, 3)
+    assert int(dut.uo_out.value) == 0x48
