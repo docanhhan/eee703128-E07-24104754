@@ -2,7 +2,7 @@ yaml_version: 6
 
 project:
   title:        "E07 Bo dao thu tu bit co chot"
-  author:       "Nguyen Thai Hung "
+  author:       "Nguyen Thai  Hung "
   discord:      ""
   description:  "Nap mot byte roi xuat byte dao thu tu bit hoac dao nibble"
   language:     "Verilog"
