@@ -1,0 +1,21 @@
+107. Printing statistics.
+
+=== tt_um_eee703128_E07 ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+       24        - wires
+       59        - wire bits
+        8        - public wires
+       43        - public wire bits
+        8        - ports
+       43        - port bits
+       40  450.432 cells
+       16   60.058   sky130_fd_sc_hd__conb_1
+        8  210.202   sky130_fd_sc_hd__dfrtp_2
+       16  180.173   sky130_fd_sc_hd__mux2_1
+
+   Chip area for module '\tt_um_eee703128_E07': 450.432000
+     of which used for sequential elements: 210.201600 (46.67%)
+
