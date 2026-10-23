@@ -1,0 +1,7 @@
+Yosys 0.33 + sky130_fd_sc_hd__tt_025C_1v80 (open_pdks.sky130a 1.0.471). Kich ban tu dung, da hieu chuan: A tai tao dung 40 o / 450.432 um2 cua flow CI.
+A  mode truoc thanh ghi, reset bat dong bo (bai nop)   40 o  450.432 um2
+B  mode sau thanh ghi, reset bat dong bo               40 o  450.432 um2
+C  mode truoc thanh ghi, reset dong bo                 48 o  460.442 um2
+D  chi dao bit (bo che do)                             32 o  360.346 um2
+E  to hop thuan (khong thanh ghi)                      24 o  150.144 um2
+(16 o conb_1 = 60.058 um2 co mat o ca 5 phuong an: chi phi cua wrapper Tiny Tapeout)

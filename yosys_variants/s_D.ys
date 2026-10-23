@@ -1,0 +1,8 @@
+read_verilog -sv D.v
+synth -top tt_um_eee703128_E07 -flatten
+dfflibmap -liberty hd3.lib
+opt
+abc -liberty hd3.lib
+hilomap -locell sky130_fd_sc_hd__conb_1 LO -hicell sky130_fd_sc_hd__conb_1 HI
+opt_clean -purge
+tee -o stat_D.txt stat -liberty hd3.lib
